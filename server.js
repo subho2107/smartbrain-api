@@ -13,14 +13,13 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0
 const db = knex({
     client: 'pg',
     connection: {
-        connectionString: process.env.DATABASE_URL,
-        ssl: true,
+        user: 'tirthankarbhattacharya',
+        password: '',
+        host: '127.0.0.1',
+        database: 'smart-brain'
     }
 });
-db.select('*').from('users')
-    .then(data => {
-        console.log("k");
-    });
+
 
 app.use(bodyParser.json());
 app.use(cors());
