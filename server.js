@@ -13,10 +13,10 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0
 const db = knex({
     client: 'pg',
     connection: {
-        user: 'smart_brain_r49o_user',
-        password: process.env.DATABASE_PASSWORD,
-        host: process.env.DATABASE_URL,
-        database: 'smart_brain_r49o'
+        connectionString: process.env.DATABASE_EXTERNAL_URL,
+        ssl: {
+            rejectUnauthorized: false
+        }
     }
 });
 
